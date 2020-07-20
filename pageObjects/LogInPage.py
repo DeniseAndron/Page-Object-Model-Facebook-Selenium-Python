@@ -1,38 +1,33 @@
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
 import sys
 sys.path.append("C://Users/Denisa\Desktop/selenium/facebook")
-from Resources.locators import *
 from pageObjects.Pages import BasePage
 from Resources.TestData import TestData
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-#Test cases
-#1. Login using the login page class -yes
-#check if you are logged in -  yes
-#post a message
-#delete a post
-#post a picture
-#Tag people
-#search for people
-# add a friend
-#delete a friend
+
 
 
 class LoginPage(BasePage):
+    textbox_username_id = (By.ID, "email")
+    textbox_password_id = (By.ID, "pass")
+    button_login_id = (By.ID, "u_0_b")
+
 
     def __init__(self, driver):
         super().__init__(driver)
 
 
     def setUsername(self, username):
-        self.driver.find_element(*MainPageLocators.textbox_username_id).send_keys(username)
+        self.driver.find_element(self.textbox_username_id).send_keys(username)
 
     def setLoginPassword(self):
-        self.enter_text(*MainPageLocators.textbox_password_id, TestData.loginPassword)
+        self.enter_text(self.textbox_password_id, TestData.loginPassword)
 
     def setButtonLogin(self):
-        self.click(MainPageLocators.button_login_id)
+        self.click(self.button_login_id)
 
     #the test with run with success both times, you will now if you are logged in or if you are not
     def checkLogin(self):

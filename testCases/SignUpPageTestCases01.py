@@ -1,4 +1,16 @@
 
+import unittest
+import HtmlTestRunner
+from selenium import webdriver
+import time
+import sys
+
+sys.path.append("C://Users/Denisa/Desktop/selenium/facebook")
+from pageObjects.LogInPage import LoginPage
+from Resources.TestData import TestData
+from pageObjects.ContentPage import contentPageFacebook
+from testCases.BaseTest import facebookTestBase
+
 
 
 
@@ -65,3 +77,7 @@ class SignUpTest(facebookTestBase):
     def test_04_optionalGenderPick(self):
         sp = SignUpPage(self.driver)
         sp.optionalGenderInput(TestData.genderOptional)
+
+
+if __name__ == '__main__':
+        unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner (output="C:\\Users\\Denisa\\Desktop\\selenium\\facebook\\reports"))
