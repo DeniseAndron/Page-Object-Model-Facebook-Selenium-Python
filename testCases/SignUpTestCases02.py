@@ -8,7 +8,6 @@ import sys
 sys.path.append("C://Users/Denisa/Desktop/selenium/facebook")
 from pageObjects.SignUpPage import SignUpPage
 from Resources.TestData import TestData
-from pageObjects.ContentPage import contentPageFacebook
 from testCases.BaseTest import facebookTestBase
 
 

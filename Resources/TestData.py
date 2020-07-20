@@ -1,14 +1,13 @@
 
 
 class TestData():
-    CHROME_EXECUTABLE_PATH = "C:\\Users\\Denisa\Desktop\\selenium\\facebook\drivers\\chromedriver.exe"
     #signup
     baseURL = "https://facebook.com/"
     firstname = "maria"
     surname = "ionica"
     email = "maria.ionica@gmail.com"
     secondEmail = "maria.ionica@gmail.com"
-    password = "test123"
+    password = "tesst123"
     daySelect = "4"
     monthSelect = "4"
     yearSelect = "1996"
@@ -18,4 +17,4 @@ class TestData():
 
     #login
     username = "denise.andron@protonmail.com"
-    loginPassword = "testing123"
+    loginPassword = "testinsg123"

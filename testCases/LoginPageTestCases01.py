@@ -7,8 +7,9 @@ import sys
 
 sys.path.append("C://Users/Denisa/Desktop/selenium/facebook")
 from pageObjects.LogInPage import LoginPage
+
 from Resources.TestData import TestData
-from pageObjects.ContentPage import contentPageFacebook
+
 from testCases.BaseTest import facebookTestBase
 
 
@@ -35,9 +36,7 @@ class LogInTestContent(facebookTestBase):
         lp = LoginPage(self.driver)
         lp.checkLogin()
 
-    def test_09_clickProfile(self):
-        cp = contentPageFacebook(self.driver)
-        cp.goToProfile()
+
 
 if __name__ == '__main__':
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner (output="C:\\Users\\Denisa\\Desktop\\selenium\\facebook\\reports"))

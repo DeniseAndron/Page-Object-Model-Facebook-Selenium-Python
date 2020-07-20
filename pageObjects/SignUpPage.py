@@ -1,9 +1,13 @@
 from selenium.webdriver.support.ui import Select
 import sys
 sys.path.append("C://Users/Denisa\Desktop/selenium/facebook")
-from selenium.webdriver.common.by import By
 
-class SignUpPage():
+from selenium.webdriver.common.by import By
+from pageObjects.Pages import BasePage
+from Resources.TestData import TestData
+
+
+class SignUpPage:
     first_name_xpath = (By.XPATH, '//input[@name="firstname"]')
     surname_xpath = (By.XPATH, '//input[@name="lastname"]')
     email_xpath = (By.XPATH, '//input[@name="reg_email__"]')
@@ -24,34 +28,34 @@ class SignUpPage():
         self.driver = driver
 
     def setFirstName(self, firstname):
-        self.driver.find_element(self.first_name_xpath).send_keys(firstname)
+        self.driver.find_element(*self.first_name_xpath).send_keys(firstname)
 
     def setSurname(self, surname):
-        self.driver.find_element(self.surname_xpath).send_keys(surname)
+        self.driver.find_element(*self.surname_xpath).send_keys(surname)
 
     def setEmail (self, email):
-        self.driver.find_element(self.email_xpath).send_keys(email)
+        self.driver.find_element(*self.email_xpath).send_keys(email)
 
     def setSecondEmail(self, secondEmail):
-        self.driver.find_element(self.c_email_xpath).send_keys(secondEmail)
+        self.driver.find_element(*self.c_email_xpath).send_keys(secondEmail)
 
     def setPassword(self, password):
-        self.driver.find_element(self.password_xpath).send_keys(password)
+        self.driver.find_element(*self.password_xpath).send_keys(password)
 
     #Pick your birthday
 
     def birthdayDay(self,daySelect):
-        Select(self.driver.find_element(self.day)).select_by_index(daySelect)
+        Select(self.driver.find_element(*self.day)).select_by_index(daySelect)
 
     def birthdayMonth(self, monthSelect):
-        Select(self.driver.find_element(self.month)).select_by_index(monthSelect)
+        Select(self.driver.find_element(*self.month)).select_by_index(monthSelect)
 
     def birthdayYear(self, yearSelect):
-        Select(self.driver.find_element(self.year)).select_by_visible_text(yearSelect)
+        Select(self.driver.find_element(*self.year)).select_by_visible_text(yearSelect)
 
     def genderFemale(self):
 
-        gender = self.driver.find_element(self.female)
+        gender = self.driver.find_element(*self.female)
 
         # check if the female gender is selected and print the result, should be false
         verify_gender = gender.is_selected()
@@ -66,7 +70,7 @@ class SignUpPage():
 
     def genderMale(self):
 
-        gender = self.driver.find_element(self.male)
+        gender = self.driver.find_element(*self.male)
 
         # check if the male gender is selected and print the result, should be false
         verify_gender = gender.is_selected()
@@ -81,7 +85,7 @@ class SignUpPage():
 
     def genderCustom(self):
 
-        gender = self.driver.find_element(self.custom)
+        gender = self.driver.find_element(*self.custom)
 
         # check if the custom gender is selected and print the result, should be false
         verify_gender = gender.is_selected()
@@ -95,8 +99,8 @@ class SignUpPage():
         print("The custom button is selected " + str(verify_gender))
 
     def pronounSelect(self, pronounCheck):
-        Select(self.driver.find_element(self.pronoun)).select_by_value(pronounCheck)
+        Select(self.driver.find_element(*self.pronoun)).select_by_value(pronounCheck)
 
     def optionalGenderInput(self, genderOptional):
-        self.driver.find_element(self.genderOptional_xpath).send_keys(genderOptional)
+        self.driver.find_element(*self.genderOptional_xpath).send_keys(genderOptional)
 

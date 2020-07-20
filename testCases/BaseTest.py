@@ -5,11 +5,9 @@ import time
 import sys
 
 sys.path.append("C://Users/Denisa/Desktop/selenium/facebook")
-from pageObjects.LogInPage import LoginPage
-from pageObjects.SignUpPage import SignUpPage
-from Resources.TestData import TestData
-from pageObjects.ContentPage import contentPageFacebook
 
+from Resources.TestData import TestData
+from drivers.Drivers import executables
 
 class facebookTestBase(unittest.TestCase):
 
@@ -20,7 +18,7 @@ class facebookTestBase(unittest.TestCase):
         #disable the pop-up notifications
         chrome_options.add_argument("--disable-notifications")
 
-        cls.driver = webdriver.Chrome(TestData.CHROME_EXECUTABLE_PATH, options=chrome_options)
+        cls.driver = webdriver.Chrome(executables.CHROME_EXECUTABLE_PATH, options=chrome_options)
         cls.driver.get(TestData.baseURL)
         cls.driver.maximize_window()
 
