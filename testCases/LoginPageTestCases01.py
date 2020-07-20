@@ -29,7 +29,7 @@ class LogInTestContent(facebookTestBase):
     def test_07_loginButton(self):
         lp = LoginPage(self.driver)
         lp.setButtonLogin()
-        time.sleep(5)
+
 
     def test_08_errorMessage(self):
         lp = LoginPage(self.driver)

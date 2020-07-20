@@ -14,6 +14,8 @@ class LoginPage(BasePage):
     textbox_username_id = (By.ID, "email")
     textbox_password_id = (By.ID, "pass")
     button_login_id = (By.ID, "u_0_b")
+    login_error_message = (By.XPATH, '//div[@id="globalContainer"]/div[3]/div/div/div')
+
 
 
     def __init__(self, driver):
@@ -34,7 +36,7 @@ class LoginPage(BasePage):
 
         # modify this - assert at error message
         try:
-            self.driver.find_element(*MainPageLocators.login_error_message)
+            self.driver.find_element(self.login_error_message)
             print('You are not logged in, wrong username or password')
         except NoSuchElementException:
             print('You are logged in')

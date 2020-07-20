@@ -1,6 +1,8 @@
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.by import By
 import sys
 sys.path.append("C://Users/Denisa\Desktop/selenium/facebook")
+
 
 #Test cases
 #1. Login using the login page class -yes
@@ -14,12 +16,11 @@ sys.path.append("C://Users/Denisa\Desktop/selenium/facebook")
 #delete a friend
 
 class contentPageFacebook():
-    login_error_message = (By.XPATH, '//div[@id="globalContainer"]/div[3]/div/div/div')
     click_on_profile_page = (By.XPATH, '//div[@id="u_0_a"]/div[1]/div[1]/div')
 
     def __init__(self, driver):
         self.driver = driver
 
     def goToProfile(self):
-        self.driver.find_element(*MainPageLocators.click_on_profile_page).click()
+        self.driver.find_element(self.click_on_profile_page).click()
 
