@@ -4,8 +4,7 @@ import sys
 sys.path.append("C://Users/Denisa\Desktop/selenium/facebook")
 from pageObjects.Pages import BasePage
 from Resources.TestData import TestData
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+
 
 
 

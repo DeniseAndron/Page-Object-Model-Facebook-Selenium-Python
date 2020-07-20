@@ -23,11 +23,11 @@ class BasePage():
 
     # this function performs click on web element whose locator is passed to it.
     def click(self, by_locator):
-        WebDriverWait(self.driver).until(EC.visibility_of_element_located(by_locator)).click()
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).click()
 
     # this function asserts comparison of a web element's text with passed in text.
     def assert_element_text(self, by_locator, element_text):
-        web_element =WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
+        web_element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         assert web_element.text == element_text
 
     # this function performs text entry of the passed in text, in a web element whose locator is passed to it.
@@ -41,7 +41,7 @@ class BasePage():
 
     # this function checks if the web element whose locator has been passed to it, is visible or not and returns
     # true or false depending upon its visibility.
-    def is_visible(self ,by_locator):
+    def is_visible(self, by_locator):
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         return bool(element)
 
